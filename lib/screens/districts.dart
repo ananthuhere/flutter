@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:sample_demo/screens/eranakulam.dart';
+import 'package:sample_demo/screens/login.dart';
 
 class DistrctPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          centerTitle: false,
-          backgroundColor: Colors.black45,
-          title: Transform(
-            // you can forcefully translate values left side using Transform
-            transform: Matrix4.translationValues(-50.0, 0.0, 0.0),
-            child: Text(
-              "Rawdata",
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.start,
+        centerTitle: false,
+        backgroundColor: Colors.black45,
+        title: Transform(
+          // you can forcefully translate values left side using Transform
+          transform: Matrix4.translationValues(-50.0, 0.0, 0.0),
+          child: Text(
+            "Rawdata",
+            style: TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.start,
           ),
-          leading: new Container()),
+        ),
+        leading: new Container(),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext ctx) => LoginPage()));
+              },
+              icon: Icon(Icons.logout))
+        ],
+      ),
       body: Container(
         width: 400,
         decoration: BoxDecoration(

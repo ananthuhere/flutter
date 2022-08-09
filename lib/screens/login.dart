@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:sample_demo/screens/districts.dart';
 
 class LoginPage extends StatelessWidget {
+
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,25 +20,14 @@ class LoginPage extends StatelessWidget {
             Text(
               "Rawdata",
               style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 32,
                   color: Colors.brown,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 25,
+              height: 130,
             ),
-            Container(
-              margin: const EdgeInsets.only(right: 10.0,top: 15.0,left: 10.0),
-              width: 100,
-              height: 100,
-              child: Image.asset(
-                "assets/raw.jpg",
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(
-              height: 35,
-            ),
+
             Container(
               width: 400.0,
               height: 118,
@@ -45,12 +38,13 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextField(
+                    controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
                     onChanged: (String textValue) {},
                     onTap: () {},
                     decoration: InputDecoration(
-                      labelText: "Email",
-                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                      hintText: "Email",
+                      hintStyle: TextStyle(fontWeight: FontWeight.bold),
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -73,12 +67,14 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   TextField(
+                    controller: _passwordController,
+                    obscureText: true,
                     keyboardType: TextInputType.name,
                     onChanged: (String textValue) {},
                     onTap: () {},
                     decoration: InputDecoration(
-                      labelText: "Password",
-                      labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                      hintText: "Password",
+                      hintStyle: TextStyle(fontWeight: FontWeight.bold),
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -121,8 +117,7 @@ class LoginPage extends StatelessWidget {
                   style: TextStyle(fontSize: 25, color: Colors.white),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContextctx) => DistrctPage()));
+                 checkLogin(context);
                 },
               ),
             ),
@@ -130,5 +125,24 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     ));
+  }
+  
+  void checkLogin(BuildContext ctx)
+  {
+    final _email = _emailController.text;
+    final _password = _passwordController.text;
+    if(_email == _password)
+      {
+        Navigator.of(ctx).push(
+          MaterialPageRoute(builder: (BuildContext ctx) => DistrctPage()));
+    }else{
+      final _errorMessage = "email and password does not match";
+      ScaffoldMessenger.of(ctx)
+          .showSnackBar(SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.red,
+          margin: EdgeInsets.all(10),
+          content: Text(_errorMessage)));
+    }
   }
 }
