@@ -54,6 +54,7 @@ class DistrctPage extends StatelessWidget {
                         builder: (BuildContext ctx) => ErnakulamPage()));
                   },
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text("Ernakulam ",
                           textAlign: TextAlign.start,
