@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
               "Rawdata",
               style: TextStyle(
                   fontSize: 32,
-                  color: Colors.brown,
+                  color: Colors.grey.shade600,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
               height: 118,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
-                color: Colors.black45,
+                color: Colors.white,
               ),
               child: Column(
                 children: [
@@ -44,23 +44,23 @@ class LoginPage extends StatelessWidget {
                     onTap: () {},
                     decoration: InputDecoration(
                       hintText: "Email",
-                      hintStyle: TextStyle(fontWeight: FontWeight.bold),
+                      hintStyle: const TextStyle(fontWeight: FontWeight.bold),
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.white70,
+                            color: Colors.indigo.shade50,
                             width: 10,
                           ),
                           borderRadius: BorderRadius.circular(20)),
                       disabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.white70,
+                            color: Colors.indigo.shade50,
                             width: 10,
                           ),
                           borderRadius: BorderRadius.circular(20)),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.white70,
+                            color: Colors.indigo.shade50,
                             width: 10,
                           ),
                           borderRadius: BorderRadius.circular(20)),
@@ -78,19 +78,19 @@ class LoginPage extends StatelessWidget {
                       fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.white70,
+                            color: Colors.indigo.shade50,
                             width: 10,
                           ),
                           borderRadius: BorderRadius.circular(20)),
                       disabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.white70,
+                            color: Colors.indigo.shade50,
                             width: 10,
                           ),
                           borderRadius: BorderRadius.circular(20)),
                       focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.black12,
+                            color: Colors.indigo.shade50,
                             width: 10,
                           ),
                           borderRadius: BorderRadius.circular(20)),
@@ -107,11 +107,11 @@ class LoginPage extends StatelessWidget {
               height: 50.0,
               child: TextButton(
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.brown),
+                    backgroundColor: MaterialStateProperty.all(Colors.grey.shade600),
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
-                            side: BorderSide(color: Colors.brown)))),
+                            side: BorderSide(color: Colors.indigo.shade50)))),
                 child: Text(
                   'Sign In',
                   style: TextStyle(fontSize: 25, color: Colors.white),
