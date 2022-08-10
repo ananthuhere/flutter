@@ -23,8 +23,8 @@ class ErnakulamPage extends StatelessWidget {
           actions: [
             IconButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (BuildContext ctx) => LoginPage()));
+                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                      LoginPage()), (Route<dynamic> route) => false);
                 },
                 icon: Icon(Icons.logout))
           ],

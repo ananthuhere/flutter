@@ -130,8 +130,11 @@ class LoginPage extends StatelessWidget {
   void checkLogin(BuildContext ctx)
   {
     final _email = _emailController.text;
+    const _emailis = "abc@mail.com";
     final _password = _passwordController.text;
-    if(_email == _password)
+    const
+    _passwordis = "password@123";
+    if(_emailis == _email && _passwordis == _password)
       {
         Navigator.of(ctx).push(
           MaterialPageRoute(builder: (BuildContext ctx) => DistrctPage()));

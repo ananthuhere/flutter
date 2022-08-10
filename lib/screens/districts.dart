@@ -25,8 +25,7 @@ class DistrctPage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext ctx) => LoginPage()));
+                Navigator.pop(context);
               },
               icon: Icon(Icons.logout))
         ],
