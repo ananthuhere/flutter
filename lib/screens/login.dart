@@ -133,6 +133,8 @@ class LoginPage extends StatelessWidget {
     final password = _passwordController.text;
     const passwordIs = "password@123";
     if (emailIs == email && passwordIs == password) {
+      _emailController.clear();
+      _passwordController.clear();
       Navigator.of(ctx).push(
           MaterialPageRoute(builder: (BuildContext ctx) => DistrictPage()));
     } else {
