@@ -1,8 +1,85 @@
 import 'package:flutter/material.dart';
-import 'package:sample_demo/screens/eranakulam.dart';
-import 'package:sample_demo/screens/login.dart';
 
-class DistrctPage extends StatelessWidget {
+import 'package:sample_demo/screens/login.dart';
+import './details_page.dart';
+import '../models/district.dart';
+
+class DistrictPage extends StatelessWidget {
+  List<District> districts = [
+    District(
+        'https://www.mapsofindia.com/maps/kerala/roads/ernakulam-road-map.jpg',
+        'Ernakulam',
+        2189,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'http://2.bp.blogspot.com/_SjKbjer0WqM/SxTOoKF3TLI/AAAAAAAAAtw/4udDEieWrJg/s1600/thiruvananthapuram+map.jpg',
+        'Trivandrum',
+        3000,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/alappuzha-district-map.jpg',
+        'Alappuzha',
+        2500,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/thrissur-district-map.jpg',
+        'Thrissur',
+        2178,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/kottayam-district-map.jpg',
+        'Kottayam',
+        2458,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/kannur-district-map.jpg',
+        'Kannur',
+        3054,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/malappuram-district-map.jpg',
+        'Malappuram',
+        2508,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://kozhikodejillapanchayath.in/img/kozhikode%20map.jpg',
+        'kozhikkode',
+        2874,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/pathanamthitta-district-map.jpg',
+        'Pathanamthitta',
+        1845,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/kasargod-district-map.jpg',
+        'kasargod',
+        2544,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/idukki-district-map.jpg',
+        'Idukki',
+        2189,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/kollam-district-map.jpg',
+        'Kollam',
+        3000,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/wayanad-district-map.jpg',
+        'Wayanad',
+        2500,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+    District(
+        'https://www.mapsofindia.com/maps/kerala/districts/palakkad-district-map.jpg',
+        'Palakkad',
+        2178,
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Least sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'),
+  ];
+
+  DistrictPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +89,7 @@ class DistrctPage extends StatelessWidget {
         title: Transform(
           // you can forcefully translate values left side using Transform
           transform: Matrix4.translationValues(-50.0, 0.0, 0.0),
-          child: Text(
+          child: const Text(
             "Rawdata",
             style: TextStyle(
               fontSize: 28,
@@ -21,320 +98,53 @@ class DistrctPage extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
         ),
-        leading: new Container(),
+        leading: Container(),
         actions: [
           IconButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext ctx) => LoginPage()));
+                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) {
+                      return LoginPage();
+                    },
+                  ),
+                  (_) => false,
+                );
               },
-              icon: Icon(Icons.logout))
+              icon: const Icon(Icons.logout))
         ],
       ),
-      body: Container(
-        width: 400,
-        decoration: BoxDecoration(
-            color: Colors.white10,
-            border: Border.all(
-              color: Colors.white10,
-            ),
-            borderRadius: BorderRadius.only(topRight: Radius.circular(40.0))),
-        margin: EdgeInsets.symmetric(horizontal: 20.0),
-        padding: EdgeInsets.only(top: 10.0),
-        child: ListView(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black54)),
-                color: Colors.grey,
-              ),
-              child: TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext ctx) => ErnakulamPage()));
-                  },
-                  child: Column(
-                    children: [
-                      Text("Ernakulam ",
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Container(
-                        child: Text('Area : 2189 sqkm',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 15)),
-                      )
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black54)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Thiruvananthapuram ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Container(
-                        child: Text('Area : 2189 sqkm',
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 15)),
-                      )
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black54)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Pathanamthitta",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black54)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Alappuzha ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Kollam",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Kottayam ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Idukki",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Palakkad ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Wayanad ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Thrissur ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Malappuram ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Kozhikkode ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Kannur",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.black)),
-                color: Colors.grey,
-              ),
-              width: 300,
-              child: TextButton(
-                  onPressed: () {},
-                  child: Column(
-                    children: [
-                      Text("Kasargod ",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20)),
-                      Text('Area : 2189 sqkm',
-                          style: TextStyle(color: Colors.black, fontSize: 15)),
-                    ],
-                  )),
-            )
-          ],
-        ),
-      ),
+      body: ListView.separated(
+          padding: const EdgeInsets.all(10.0),
+          itemCount: districts.length,
+          separatorBuilder: (context, index) {
+            return const Divider(
+              height: 2.0,
+              thickness: 3.0,
+              color: Colors.black54,
+            );
+          },
+          itemBuilder: (context, index) {
+            return ListTile(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => DetailsPage(
+                            image: districts[index].image,
+                            name: districts[index].name,
+                            area: districts[index].area.toString(),
+                            description: districts[index].description,
+                          )));
+                },
+                title: Text(districts[index].name,
+                    style: const TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold)),
+                subtitle: Text(
+                  "Area: ${districts[index].area} sqkm",
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
+                ));
+          }),
     );
   }
 }
