@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample_demo/screens/districts.dart';
+
+import './districts.dart';
 
 class LoginPage extends StatelessWidget {
   final _emailController = TextEditingController();
@@ -136,8 +137,9 @@ class LoginPage extends StatelessWidget {
       _emailController.clear();
       _passwordController.clear();
       Navigator.of(ctx).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => DistrictPage()),
-              (Route<dynamic> route) => false);
+        MaterialPageRoute(builder: (context) => DistrictPage()),
+        (Route<dynamic> route) => false,
+      );
     } else {
       const errorMessage = "email and password does not match";
       ScaffoldMessenger.of(ctx).showSnackBar(const SnackBar(
