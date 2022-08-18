@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample_demo/screens/login.dart';
+
+import '../models/district.dart';
 
 class DetailsPage extends StatelessWidget {
   final String image;
@@ -35,10 +36,8 @@ class DetailsPage extends StatelessWidget {
           ),
           actions: [
             IconButton(
-                onPressed: () {
-                  Navigator.of(context).pushAndRemoveUntil(
-                      MaterialPageRoute(builder: (context) => LoginPage()),
-                      (Route<dynamic> route) => false);
+                onPressed: () async{
+                  final action = await AlertDialogs.yesCancelDialog(context, 'LOGOUT', 'Are you sure?');
                 },
                 icon: const Icon(Icons.logout))
           ],

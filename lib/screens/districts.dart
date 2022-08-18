@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:sample_demo/screens/login.dart';
 import './details_page.dart';
 import '../models/district.dart';
 
@@ -101,14 +100,11 @@ class DistrictPage extends StatelessWidget {
         leading: Container(),
         actions: [
           IconButton(
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
-                  MaterialPageRoute(
-                    builder: (BuildContext context) {
-                      return LoginPage();
-                    },
-                  ),
-                  (_) => false,
+              onPressed: () async {
+                final action = await AlertDialogs.yesCancelDialog(
+                  context,
+                  'LOGOUT',
+                  'Are you sure?',
                 );
               },
               icon: const Icon(Icons.logout))
@@ -137,7 +133,9 @@ class DistrictPage extends StatelessWidget {
                 },
                 title: Text(districts[index].name,
                     style: const TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold)),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    )),
                 subtitle: Text(
                   "Area: ${districts[index].area} sqkm",
                   style: const TextStyle(
