@@ -135,8 +135,9 @@ class LoginPage extends StatelessWidget {
     if (emailIs == email && passwordIs == password) {
       _emailController.clear();
       _passwordController.clear();
-      Navigator.of(ctx).push(
-          MaterialPageRoute(builder: (BuildContext ctx) => DistrictPage()));
+      Navigator.of(ctx).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => DistrictPage()),
+              (Route<dynamic> route) => false);
     } else {
       const errorMessage = "email and password does not match";
       ScaffoldMessenger.of(ctx).showSnackBar(const SnackBar(

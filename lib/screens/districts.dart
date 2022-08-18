@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sample_demo/screens/login.dart';
 
+import 'package:sample_demo/screens/login.dart';
 import './details_page.dart';
 import '../models/district.dart';
 
